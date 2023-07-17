@@ -1,3 +1,4 @@
+import { BrowsingContextNavigateResult } from "webdriver/build/bidi/localTypes";
 import Page from "./page";
 
 class LoginPage extends Page {
@@ -6,20 +7,19 @@ class LoginPage extends Page {
     public get inputUsername() { return $('#email')}
     public get inputPassword() { return $('#password')}
     public get btnSubmit() { return $('#submit')}
-    public get errorLogin() {return $('#error')}
+    public get loginError() {return $('#error')}
 
-    public async loginError (username: string, password: string){
+    public async login (username: string, password: string){
         await this.header.getTitle();
         await this.inputUsername.setValue(username);
         await this.inputPassword.setValue(password);
         await this.btnSubmit.click();
     }
-    public async error (){
-        await this.errorLogin.getText();
-    }
+
     public open() {
-        return super.open('loginError');
+        return super.open();
     }
+    
 }
 
 export default new LoginPage();
