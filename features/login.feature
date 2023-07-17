@@ -1,6 +1,17 @@
 Feature: Contact List App
 
-  # Scenario Outline: As a user, I successfully login to the contact list app
+  Scenario Outline: As a user, I am unsuccessful logging in to the contact list app
+    Given the user is on the login page
+    And the header has text <headerText>
+    When I login with incorrect <username> and/or <password>
+    Then I should see an error message saying <message>
+
+    Examples: 
+      | headerText       | username               | password     | message                        |
+      | Contact List App | gillopezjr6@gmail.com  | E$$exville20 | Incorrect username or password |
+      | Contact List App | eaglenextiva@gmail.com | password     | Incorrect username or password |
+
+ # Scenario Outline: As a user, I successfully login to the contact list app
   #   Given the user is on the login page
   #   And the header has text <headerText>
   #   When I login with correct <username> and <password>
@@ -10,14 +21,3 @@ Feature: Contact List App
   #     | headerText       | username               | password     | message                                          |
   #     | Contact List App | eaglenextiva@gmail.com | E$$exville20 | Click on any contact to view the Contact Details |
  
-
-  Scenario Outline: As a user, I am unsuccessful logging in to the contact list app
-    Given the user is on the login page
-    And the header has text <headerText>
-    When I login with incorrect <username> and/or <password>
-    Then I should see an error message saying <message>
-
-    Examples: 
-      | headerText       | username               | password     | message                                          |
-      | Contact List App | gillopezjr6@gmail.com  | E$$exville20 | Incorrect username or password                   |
-      | Contact List App | eaglenextiva@gmail.com | password     | Incorrect username or password                   |

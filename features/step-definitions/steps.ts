@@ -18,7 +18,7 @@ Given(/^the header has text (.*)$/, async (headerText: string) => {
 });
 
 When(/^I login with incorrect (.*) and\/or (.*)$/, async (username: string, password: string) => {
-	await LoginPage.login(username, password);
+	await LoginPage.loginError(username, password);
 
 	await browser.setTimeout({'script': 15000});
 	await browser.executeAsync((done) => {
@@ -28,7 +28,7 @@ When(/^I login with incorrect (.*) and\/or (.*)$/, async (username: string, pass
 });
 
 Then(/^I should see an error message saying (.*)$/, async (message) => {
-	await expect(LoginPage.loginError).toHaveText(message);
+	await expect(LoginPage.errorLogin).toHaveText(message);
 });
 
 

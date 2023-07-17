@@ -6,20 +6,19 @@ class LoginPage extends Page {
     public get inputUsername() { return $('#email')}
     public get inputPassword() { return $('#password')}
     public get btnSubmit() { return $('#submit')}
-    public get loginError() {return $('#error')}
+    public get errorLogin() {return $('#error')}
 
-    public async login (username: string, password: string){
+    public async loginError (username: string, password: string){
         await this.header.getTitle();
         await this.inputUsername.setValue(username);
         await this.inputPassword.setValue(password);
         await this.btnSubmit.click();
-        await this.loginError.getText();
     }
-    public async error (message){
-        await this.loginError.getText();
+    public async error (){
+        await this.errorLogin.getText();
     }
     public open() {
-        return super.open('login');
+        return super.open('loginError');
     }
 }
 
