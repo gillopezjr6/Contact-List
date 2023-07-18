@@ -10,7 +10,4 @@ export default class Page {
     public open () {
         return browser.url(`https://thinking-tester-contact-list.herokuapp.com`)
     }
-    // public open (path: string) {
-    //     return browser.url(`https://thinking-tester-contact-list.herokuapp.com/${path}`)
-    // } 
 }

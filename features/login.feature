@@ -1,4 +1,4 @@
-Feature: Contact List App
+Feature: Testing unsuccessful and successful login to the Contact List app
 
   Scenario Outline: As a user, I am unsuccessful logging in to the contact list app
     Given the user is on the login page
@@ -20,8 +20,8 @@ Feature: Contact List App
  Scenario Outline: As a user, I successfully login to the contact list app
     Given the user is on the login page
     And the header has text <headerText>
-    When I login with correct <username> and <password>
-    Then I should see a label on the contact list page saying <message>
+    When they login with correct <username> and <password>
+    Then they should see a label on the contact list page saying <message>
 
     Examples: 
       | headerText       | username               | password     | message                                          |
